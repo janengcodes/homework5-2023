@@ -1,0 +1,160 @@
+/* step 1. animate logo with key frames
+    5 sec
+    width 25 opacity 0
+    width 475 opacity 1 */
+#logo {
+    animation: logoAnimation 5s;
+}
+@keyframes logoAnimation {
+   from {
+    width: 25px;
+    opacity: 0;
+    }
+   to {
+    width: 475px;
+    opacity: 1;
+    }
+}
+
+/* step 2. set up body's background and font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f1f1f1;
+    background-image: url("/images/concrete_seamless.png");
+}
+
+/* step 3. set up header and nav links*/
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+} 
+
+/* step 4. make sure nav links are in flex */
+.nav_links {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/* step 5. let user know when links have been visited*/
+.nav_links a:visited {
+    color: blueviolet;
+}
+
+/* step 6. style headers for cards */
+.card > header {
+   background-color: #288088;
+   border: solid 2px #45ADAD;
+   padding: 20px 0px 20px 0px;
+   border-top-right-radius: 50px;
+   border-top-left-radius: 50px;
+}
+
+/* step 7. set size and flex direction */
+.card {
+    border-top-right-radius: 50px;
+    border-top-left-radius: 50px;
+    flex-direction: column;
+    width: 450px;
+
+}
+
+/* step 8. set flex properties for pricing */
+.pricing {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* step 9. style gallery images */
+#image1, #image2, #image3, #image4, #image5{
+    display: flex;
+    border: solid 10px #50C7C7;
+    margin: 10px;
+    width: 300px;
+    flex-direction: row;
+}
+
+.gallery {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+}
+
+/* for printing */
+@media screen and (min-width: 900px) {
+/* step 11. set up nav links and logo */
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+header .nav_links {
+    display: flex;
+    flex-direction: row;
+} 
+/* step 12. set up pricing and card classes, flex and width */
+.pricing {
+    display: flex;
+    flex-direction: row;
+}
+.card {
+    width: 275px;
+}
+/* step 13. make sure header sticks */
+body > header {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+} 
+}
+/* step 14. get rid of animation for reduced motion*/
+@media (prefers-reduced-motion) {
+    #logo {
+        animation: none;
+    }
+}
+
+@media print {
+    /* step 15, 16. set up font family and background*/
+    body {
+        font-family: Arial, Helvetica;
+        background-image: none;
+    }
+    /* step 17. space nav links */
+    header .nav_links {
+        width: 475px;
+        display: flex;
+        flex-direction: row; 
+        justify-content: space-between; 
+    }
+    /* step 18. align elements along bottom */
+    .pricing {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+    }
+    /* step 19. border of cards */
+    .card {
+        display: flex;
+        border: solid 2px #45ADDD;
+        flex-basis: 325px;
+    }
+    /* step 20. add emojis */
+    .card li:nth-child(2)::after {
+        content: "👍";
+    }
+
+    /* step 20. gallery is invisible */
+    #gallery, .gallery {
+        display: none;
+    }
+
+}
